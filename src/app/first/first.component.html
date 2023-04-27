@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>My To-Do List</title>
+  <link rel="stylesheet" href="first.component.css">
+</head>
+
+
+<input type="date" id="date">
+<style>
+#date {
+position: absolute;
+  top: 50px;
+  left: 100px;
+  background-color: #ffc107;
+  border: 3px solid #ccc;
+  color: #333;
+  font-size: 20px;
+  padding: 10px;
+}
+</style>
+
+
+
+<div class="container-fluid bg-light">
+    <div class="container bg-light">
+
+        <div class="row mt-4" style="height: 500px;">
+            <div class="col"></div>
+            <div class="col-md-6 bg-white shadow">
+
+                <div class="card bg-warning mt-4">
+                    <h4 class="text-white p-3 pt-2 pb-2">To Do App</h4>
+                </div>
+
+    <section>
+    <mat-form-field class="example-form-field">
+      <mat-label>Enter task name</mat-label>
+      <input matInput type="text" [(ngModel)]="newTaskName">
+      <button *ngIf="inputValue" matSuffix mat-icon-button aria-label="Clear" (click)="inputValue=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button (click)="addTask()" mat-raised-button>Add taskt</button>
+  </section>
+
+
+    <section>
+    <button (click)="getTask()" mat-raised-button>Get tasks</button>
+
+
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let task of tasksFromDB; let i = index">
+        <button (click)="removeTask(i)">x</button><mat-checkbox class="example-margin">{{task.taskName}}</mat-checkbox>
+      </mat-list-item>
+    </mat-list>
+  </section>
+
+ 
+
+
+        </div>
+
+    </div>
+</div>
